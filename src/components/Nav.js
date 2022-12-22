@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { FaUserTie } from 'react-icons/fa';
 
 const Navbar = () => {
   const links = [
@@ -16,6 +17,9 @@ const Navbar = () => {
   ];
   return (
     <nav className="navBar">
+      <span>
+        Bookstore CMS
+      </span>
       <ul>
         {links.map((link) => (
           <li key={link.id}>
@@ -25,6 +29,9 @@ const Navbar = () => {
           </li>
         ))}
       </ul>
+      <span>
+        <FaUserTie />
+      </span>
     </nav>
   );
 };

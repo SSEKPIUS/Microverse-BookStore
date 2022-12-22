@@ -26,7 +26,6 @@ const App = () => (
             path="/books"
             element={<Books />}
             exact
-            default
           />
           <Route
             path="/categories"

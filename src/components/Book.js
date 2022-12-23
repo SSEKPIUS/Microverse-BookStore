@@ -3,19 +3,25 @@ import React from 'react';
 import Chart from './Chart';
 
 const Book = ({ book }) => {
-  // eslint-disable-next-line no-unused-vars
-  const x = book;
+  const { id, title, author } = book;
   return (
     <div>
+      <span>{id}</span>
       <div>
         <span>action</span>
-        <h3>the hunger games</h3>
-        <span>suzanne collins</span>
+        <h3>{title}</h3>
+        <span>{author}</span>
         <div>
           <ul>
-            <li>comments</li>
-            <li>remove</li>
-            <li>edit</li>
+            <li>
+              <button type="button">comments</button>
+            </li>
+            <li>
+              <button type="button">remove</button>
+            </li>
+            <li>
+              <button type="button">edit</button>
+            </li>
           </ul>
         </div>
       </div>

@@ -15,8 +15,16 @@ const Books = () => {
           type="text"
           name="title"
           className="input-text"
-          placeholder="Add Todo..."
-          value={123}
+          placeholder="Add title"
+          value=""
+          onChange={() => true}
+        />
+        <input
+          type="text"
+          name="author"
+          className="input-text"
+          placeholder="Add author"
+          value=""
           onChange={() => true}
         />
         <Dropdown

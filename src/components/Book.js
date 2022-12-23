@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import Chart from './Chart';
 
 const Book = ({ book }) => {
@@ -40,5 +40,7 @@ const Book = ({ book }) => {
     </div>
   );
 };
-
+Book.propTypes = {
+  book: PropTypes.string.isRequired,
+};
 export default Book;

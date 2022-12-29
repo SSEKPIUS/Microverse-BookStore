@@ -4,17 +4,17 @@ import 'react-dropdown/style.css';
 
 const Books = () => {
   const options = [
-    'one', 'two', 'three',
+    'Action', 'Science Fiction', 'Economy',
   ];
   const defaultOption = options[0];
   return (
-    <div>
-      <h2>add new book</h2>
-      <form onSubmit={() => true} className="form-container">
+    <section>
+      <h2 className="form-title ">add new book</h2>
+      <form onSubmit={() => true} className="add-form">
         <input
           type="text"
           name="title"
-          className="input-text"
+          className="input title-input"
           placeholder="Add title"
           value=""
           onChange={() => true}
@@ -22,7 +22,7 @@ const Books = () => {
         <input
           type="text"
           name="author"
-          className="input-text"
+          className="input author-input"
           placeholder="Add author"
           value=""
           onChange={() => true}
@@ -32,12 +32,13 @@ const Books = () => {
           onChange={() => true}
           value={defaultOption}
           placeholder="Select an option"
+          className="input option-input"
         />
-        <button type="submit" className="input-submit">
+        <button type="submit" className="primary-button-big">
           add book
         </button>
       </form>
-    </div>
+    </section>
   );
 };
 

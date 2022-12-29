@@ -12,6 +12,7 @@ const Books = () => {
       <div>
         {books.map((book) => <Book key={book.id} book={book} />)}
       </div>
+      <div className="horizontal-divider" />
       <AddNewBook />
     </div>
   );

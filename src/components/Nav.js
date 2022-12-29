@@ -8,29 +8,31 @@ const Navbar = () => {
       id: 1,
       path: '/books',
       text: 'Books',
+      active: false,
     },
     {
       id: 2,
       path: '/categories',
       text: 'Categories',
+      active: true,
     },
   ];
   return (
-    <nav className="navBar">
-      <span>
+    <nav>
+      <span className="nav-brand">
         Bookstore CMS
       </span>
-      <ul>
+      <ul className="nav-links">
         {links.map((link) => (
           <li key={link.id}>
-            <NavLink to={link.path}>
+            <NavLink to={link.path} className={`nav-link ${link.active ? 'active-link' : ''}`}>
               {link.text}
             </NavLink>
           </li>
         ))}
       </ul>
-      <span>
-        <FaUserTie />
+      <span className="icon-button">
+        <FaUserTie className="primary-color" />
       </span>
     </nav>
   );

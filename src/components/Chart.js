@@ -7,22 +7,22 @@ import { Doughnut } from 'react-chartjs-2';
 const Chart = () => {
   ChartJS.register(ArcElement, Tooltip, Legend);
   const options = {
-    cutout: '90%',
-    radius: '100%',
+    cutout: '85%',
+    radius: '70%',
   };
 
   const data = {
     // labels: ['Red', 'Blue'],
     datasets: [
       {
-        label: '# of Votes',
+        label: '# of Books',
         data: [59, 41],
         backgroundColor: [
-          'rgba(54, 162, 235, 0.2)',
+          '#307bbe',
           'rgba(239, 239, 240, 0.2)',
         ],
         borderColor: [
-          'rgba(255, 99, 132, 1)',
+          '#307bbe',
           'rgba(54, 162, 235, 1)',
         ],
         borderWidth: 0,

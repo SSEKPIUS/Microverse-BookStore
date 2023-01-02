@@ -1,5 +1,5 @@
 // Actions
-const CHECK_STATUS = 'bookstore/categories/STATUS';
+const CHECK_STATUS = 'bookstore/categories/CHECK_STATUS';
 
 // Reducer
 const reducer = (state = [], action = {}) => {

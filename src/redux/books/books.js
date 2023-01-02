@@ -1,6 +1,6 @@
 // Actions
-const ADD_BOOK = 'bookstore/books/ADD';
-const REMOVE_BOOK = 'bookstore/books/REMOVE';
+const ADD_BOOK = 'bookstore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
 // Reducer
 const reducer = (state = [], action = {}) => {

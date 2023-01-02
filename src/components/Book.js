@@ -49,6 +49,6 @@ const Book = ({ book }) => {
   );
 };
 Book.propTypes = {
-  book: PropTypes.string.isRequired,
+  book: PropTypes.object.isRequired,
 };
 export default Book;

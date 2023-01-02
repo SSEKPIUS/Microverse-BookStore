@@ -9,13 +9,13 @@ import Error from './Error';
 
 const App = () => (
   <BrowserRouter>
-    <div className="header">
-      <div className="container">
+    <div className="nav-bar">
+      <>
         <Nav />
-      </div>
+      </>
     </div>
-    <div className="body">
-      <div className="container">
+    <div className="container">
+      <div>
         <Routes>
           <Route
             exact

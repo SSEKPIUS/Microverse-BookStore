@@ -3,15 +3,24 @@ import AddNewBook from './AddNewBook';
 import Book from './Book';
 
 const Books = () => {
-  const books = [{ id: 1, title: 'title1', author: 'author1' },
-    { id: 2, title: 'title2', author: 'author2' },
-    { id: 3, title: 'title3', author: 'author3' },
-    { id: 4, title: 'title4', author: 'author4' }];
+  const books = [{
+    id: 1, title: 'title1', author: 'author1', category: 'category1',
+  },
+  {
+    id: 2, title: 'title2', author: 'author2', category: 'category2',
+  },
+  {
+    id: 3, title: 'title3', author: 'author3', category: 'category3',
+  },
+  {
+    id: 4, title: 'title4', author: 'author4', category: 'category4',
+  }];
   return (
     <div>
-      <div>
-        {books.map((book) => <Book key={book.id} book={book} />)}
-      </div>
+      <ul className="books">
+        {books.map((book) => <li key={book.id}><Book book={book} /></li>)}
+      </ul>
+      <div className="horizontal-divider" />
       <AddNewBook />
     </div>
   );

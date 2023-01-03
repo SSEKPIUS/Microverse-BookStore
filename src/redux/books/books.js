@@ -1,9 +1,26 @@
+import uniqid from 'uniqid';
+
 // Actions
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
+const loadFromLocalStorage = () => {
+  const serializedStore = window.localStorage.getItem('store');
+  if (serializedStore === null) return undefined;
+  return JSON.parse(serializedStore);
+};
+
+const books = [{
+  id: uniqid(), title: 'Good Reads', author: 'Paul Walker', category: 'Science Fiction',
+}];
+
+const getBooks = () => {
+  const storage = loadFromLocalStorage();
+  return storage ? storage.books : books;
+};
+
 // Reducer
-const reducer = (state = [], action = {}) => {
+const reducer = (state = getBooks(), action = {}) => {
   switch (action.type) {
     case ADD_BOOK:
       return [...state, action.book];

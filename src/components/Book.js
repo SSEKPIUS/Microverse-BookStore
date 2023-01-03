@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import Chart from './Chart';
+import { removeBook } from '../redux/books/books';
 
 const Book = ({ book }) => {
   const {
     id, title, author, action,
   } = book;
+  const dispatch = useDispatch();
+
+  const deleteBook = () => {
+    dispatch(removeBook(book));
+  };
+
   return (
     <div className="book">
       <div className="book-content">
@@ -18,7 +26,7 @@ const Book = ({ book }) => {
             <div className="action-buttons">
               <button className="button-outline" type="button">Comments</button>
               <div className="vertical-divider" />
-              <button className="button-outline" type="button">Remove</button>
+              <button className="button-outline" type="button" onClick={() => deleteBook()}>Remove</button>
               <div className="vertical-divider" />
               <button className="button-outline" type="button">Edit</button>
             </div>

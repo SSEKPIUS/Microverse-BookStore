@@ -1,8 +1,20 @@
 import React from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
+import { useDispatch } from 'react-redux';
+import uniqid from 'uniqid';
+import { addBook } from '../redux/books/books';
 
 const Books = () => {
+  const dispatch = useDispatch();
+  const addBookObj = () => {
+    dispatch(addBook(
+      {
+        id: uniqid(), title: `title${uniqid()}`, author: `author${uniqid()}`, category: `ategory${uniqid()}`,
+      },
+    ));
+  };
+
   const options = [
     'Action', 'Science Fiction', 'Economy',
   ];
@@ -10,7 +22,7 @@ const Books = () => {
   return (
     <section>
       <h2 className="form-title ">add new book</h2>
-      <form onSubmit={() => true} className="add-form">
+      <form onSubmit={() => addBookObj()} className="add-form">
         <input
           type="text"
           name="title"

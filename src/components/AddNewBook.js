@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { useDispatch } from 'react-redux';
@@ -6,13 +6,18 @@ import uniqid from 'uniqid';
 import { addBook } from '../redux/books/books';
 
 const Books = () => {
+  const [formData, setFormData] = useState({
+    id: uniqid(), title: '', author: '', category: '',
+  });
+
   const dispatch = useDispatch();
   const addBookObj = () => {
-    dispatch(addBook(
-      {
-        id: uniqid(), title: `title${uniqid()}`, author: `author${uniqid()}`, category: `ategory${uniqid()}`,
-      },
-    ));
+    if (formData.title !== '' || formData.author !== '') {
+      dispatch(addBook(formData));
+      setFormData({
+        id: uniqid(), title: '', author: '', category: '',
+      });
+    }
   };
 
   const options = [
@@ -22,26 +27,26 @@ const Books = () => {
   return (
     <section>
       <h2 className="form-title ">add new book</h2>
-      <form onSubmit={() => addBookObj()} className="add-form">
+      <form onSubmit={(e) => { e.preventDefault(); addBookObj(); }} className="add-form">
         <input
           type="text"
           name="title"
           className="input title-input"
           placeholder="Add title"
-          value=""
-          onChange={() => true}
+          value={formData.title}
+          onChange={(e) => setFormData((prevState) => ({ ...prevState, title: e.target.value }))}
         />
         <input
           type="text"
           name="author"
           className="input author-input"
           placeholder="Add author"
-          value=""
-          onChange={() => true}
+          value={formData.author}
+          onChange={(e) => setFormData((prevState) => ({ ...prevState, author: e.target.value }))}
         />
         <Dropdown
           options={options}
-          onChange={() => true}
+          onChange={(e) => setFormData((prevState) => ({ ...prevState, category: e.value }))}
           value={defaultOption}
           placeholder="Select an option"
           className="input option-input"

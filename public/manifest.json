@@ -10,12 +10,20 @@
     {
       "src": "logo192.png",
       "type": "image/png",
+<<<<<<< HEAD
       "sizes": "192x192"
+=======
+      "sizes": "128x128"
+>>>>>>> Dev
     },
     {
       "src": "logo512.png",
       "type": "image/png",
+<<<<<<< HEAD
       "sizes": "512x512"
+=======
+      "sizes": "256x256"
+>>>>>>> Dev
     }
   ],
   "start_url": ".",

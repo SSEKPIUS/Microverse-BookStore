@@ -3,6 +3,7 @@ React, virtual DOM, how React uses the virtual DOM. Git/GitHub flow, webpack, li
 
 <a name="readme-top"> </a>
 
+<<<<<<< HEAD
 <!--
 HOW TO USE:
 This is an example of how you may give instructions on setting up your project locally.
@@ -25,12 +26,18 @@ REQUIRED SECTIONS:
 After you're finished please remove all the comments and instructions!
 -->
 
+=======
+>>>>>>> Dev
 <div align="center">
 
   <img src="logo.png" alt="logo" width="140"  height="auto"/>
   <br/>
 
+<<<<<<< HEAD
   <h3><b>Microverse README Template</b></h3>
+=======
+  <h3><b>Bookstore</b></h3>
+>>>>>>> Dev
 
 </div>
 
@@ -40,7 +47,10 @@ After you're finished please remove all the comments and instructions!
 
 - [📖 About the Project](#about-project)
   - [🛠 Built With](#built-with)
+<<<<<<< HEAD
     - [Tech Stack](#tech-stack)
+=======
+>>>>>>> Dev
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
@@ -60,6 +70,7 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
+<<<<<<< HEAD
 # 📖 [your_project_name] <a name="about-project"></a>
 
 > Describe your project in 1 or 2 sentences.
@@ -76,6 +87,16 @@ After you're finished please remove all the comments and instructions!
 
 > MERN Stack (MongoDB, Express.js, React.js, Node.js)
 
+=======
+# 📖 [Bookstore] <a name="about-project"></a>
+
+> Description
+
+**[Bookstore]** This project will lay foundations for your Bookstore website. You will create the React part of the app. You will also set up routing using React Router.
+
+## 🛠 Built With <a name="built-with"></a>
+
+>>>>>>> Dev
 <details>
   <summary>Client</summary>
   <ul>
@@ -83,6 +104,7 @@ After you're finished please remove all the comments and instructions!
   </ul>
 </details>
 
+<<<<<<< HEAD
 <details>
   <summary>Server</summary>
   <ul>
@@ -97,15 +119,24 @@ After you're finished please remove all the comments and instructions!
   </ul>
 </details>
 
+=======
+>>>>>>> Dev
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
+<<<<<<< HEAD
 > Describe between 1-3 key features of the application.
 
 - **[key_feature_1]**
 - **[key_feature_2]**
 - **[key_feature_3]**
+=======
+> key features of the application.
+
+- **[Books - the default view]**
+- **[Categories]**
+>>>>>>> Dev
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -115,7 +146,11 @@ After you're finished please remove all the comments and instructions!
 
 > Add a link to your deployed project.
 
+<<<<<<< HEAD
 - [Live Demo Link](https://yourdeployedapplicationlink.com)
+=======
+- [Live Demo Link](https://ssekpius-bookstore.netlify.app/)
+>>>>>>> Dev
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -185,7 +220,11 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
+<<<<<<< HEAD
 > Mention all of the collaborators of this project.
+=======
+> collaborators of this project.
+>>>>>>> Dev
 
 👤 **Author 1**
 
@@ -204,11 +243,17 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
+<<<<<<< HEAD
 > Describe 1 - 3 features you will add to the project.
 
 - [ ] **[new_feature_1]**
 - [ ] **[new_feature_2]**
 - [ ] **[new_feature_3]**
+=======
+> features we will add to the project.
+
+- [ ] **[Booking]**
+>>>>>>> Dev
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

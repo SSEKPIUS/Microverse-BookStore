@@ -1,17 +1,32 @@
-/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getBooks, addBooks, delBooks } from '../../api/Api';
 
+const loadFromLocalStorage = () => {
+  const serializedStore = window.localStorage.getItem('store');
+  if (serializedStore === null) return undefined;
+  return JSON.parse(serializedStore);
+};
+
+const extractBooks = () => {
+  const storage = loadFromLocalStorage();
+  return storage ? storage.books.booksList : {};
+};
+
 const initialState = {
-  booksList: {},
+  booksList: extractBooks(),
   msg: '',
   currentRequestId: '',
   loading: 'fin',
   error: '',
 };
 
+// Actions
+const FETCH_BOOK = 'bookstore/books/FETCH_BOOK';
+const ADD_BOOK = 'bookstore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
+
 export const fetchBooksList = createAsyncThunk(
-  'books/fetchBooksList',
+  FETCH_BOOK,
   async (_, { rejectWithValue }) => {
     try {
       const resp = await getBooks();
@@ -23,7 +38,7 @@ export const fetchBooksList = createAsyncThunk(
 );
 
 export const addBooksList = createAsyncThunk(
-  'books/addBooksList',
+  ADD_BOOK,
   async (book, { rejectWithValue }) => {
     try {
       const resp = await addBooks(book);
@@ -35,7 +50,7 @@ export const addBooksList = createAsyncThunk(
 );
 
 export const delBooksList = createAsyncThunk(
-  'books/delBooksList',
+  REMOVE_BOOK,
   async (bookID, { rejectWithValue }) => {
     try {
       const resp = await delBooks(bookID);
@@ -46,6 +61,7 @@ export const delBooksList = createAsyncThunk(
   },
 );
 
+// Reducer
 const { reducer } = createSlice({
   name: 'books',
   initialState,
@@ -113,43 +129,3 @@ const { reducer } = createSlice({
 });
 
 export default reducer;
-
-/*
-// Actions
-const ADD_BOOK = 'bookstore/books/ADD_BOOK';
-const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
-
-const loadFromLocalStorage = () => {
-  const serializedStore = window.localStorage.getItem('store');
-  if (serializedStore === null) return undefined;
-  return JSON.parse(serializedStore);
-};
-
-const books = [{
-  id: uniqid(), title: 'Good Reads', author: 'Paul Walker', category: 'Science Fiction',
-}];
-
-const getBooks = () => {
-  const storage = loadFromLocalStorage();
-  return storage ? storage.books : books;
-};
-
-// Reducer
-const reducer = (state = getBooks(), action = {}) => {
-  switch (action.type) {
-    case ADD_BOOK:
-      return [...state, action.book];
-    case REMOVE_BOOK:
-      return state.filter((book) => book !== action.book);
-    default: return state;
-  }
-};
-export default reducer;
-
-// Actions
-const addBook = (book) => ({ type: ADD_BOOK, book });
-
-const removeBook = (book) => ({ type: REMOVE_BOOK, book });
-
-export { addBook, removeBook };
-*/

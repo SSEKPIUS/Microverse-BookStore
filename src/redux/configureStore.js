@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { configureStore, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import booksSlice from './books/books';
 import categoriesSlice from './categories/categories';
 
@@ -11,5 +10,5 @@ function saveToLocalStorage(store) {
 const store = configureStore({
   reducer: { books: booksSlice, categories: categoriesSlice },
 });
-// store.subscribe(() => saveToLocalStorage(store.getState()));
+store.subscribe(() => saveToLocalStorage(store.getState()));
 export default store;

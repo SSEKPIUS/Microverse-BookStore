@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import booksReducer from './books/books';
-import categoriesReducer from './categories/categories';
+import booksSlice from './books/books';
+import categoriesSlice from './categories/categories';
 
 function saveToLocalStorage(store) {
   const serializedStore = JSON.stringify(store);
@@ -8,7 +8,7 @@ function saveToLocalStorage(store) {
 }
 
 const store = configureStore({
-  reducer: { books: booksReducer, categories: categoriesReducer },
+  reducer: { books: booksSlice, categories: categoriesSlice },
 });
 store.subscribe(() => saveToLocalStorage(store.getState()));
 export default store;

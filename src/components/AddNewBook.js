@@ -3,19 +3,22 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { useDispatch } from 'react-redux';
 import uniqid from 'uniqid';
-import { addBook } from '../redux/books/books';
+import { addBooksList } from '../redux/books/books';
 
 const Books = () => {
   const [formData, setFormData] = useState({
-    id: uniqid(), title: '', author: '', category: '',
+    item_id: uniqid(), title: '', author: '', category: 'Action',
   });
 
   const dispatch = useDispatch();
   const addBookObj = () => {
     if (formData.title !== '' || formData.author !== '') {
-      dispatch(addBook(formData));
+      dispatch(addBooksList(formData));
       setFormData({
-        id: uniqid(), title: '', author: '', category: '',
+        item_id: uniqid(),
+        title: '',
+        author: '',
+        category: 'Action',
       });
     }
   };

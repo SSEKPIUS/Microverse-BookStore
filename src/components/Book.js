@@ -2,16 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import Chart from './Chart';
-import { removeBook } from '../redux/books/books';
+import { delBooksList } from '../redux/books/books';
 
-const Book = ({ book }) => {
-  const {
-    id, title, author, action,
-  } = book;
+const Book = ({ entry }) => {
   const dispatch = useDispatch();
+  const id = entry[0] ?? 0;
+  const { title, author, action } = (entry[1][0]);
 
   const deleteBook = () => {
-    dispatch(removeBook(book));
+    dispatch(delBooksList(id));
   };
 
   return (
@@ -26,7 +25,13 @@ const Book = ({ book }) => {
             <div className="action-buttons">
               <button className="button-outline" type="button">Comments</button>
               <div className="vertical-divider" />
-              <button className="button-outline" type="button" onClick={() => deleteBook()}>Remove</button>
+              <button
+                className="button-outline"
+                type="button"
+                onClick={() => deleteBook()}
+              >
+                Remove
+              </button>
               <div className="vertical-divider" />
               <button className="button-outline" type="button">Edit</button>
             </div>
@@ -51,12 +56,14 @@ const Book = ({ book }) => {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
 };
 Book.propTypes = {
-  book: PropTypes.object.isRequired,
+  entry: PropTypes.array,
+};
+Book.defaultProps = {
+  entry: [],
 };
 export default Book;

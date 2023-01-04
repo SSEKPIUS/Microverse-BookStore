@@ -1,11 +1,9 @@
 /* eslint-disable no-param-reassign */
-/* eslint-disable no-unused-vars */
-import uniqid from 'uniqid';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getBooks, addBooks, delBooks } from '../../api/Api';
 
 const initialState = {
-  booksList: [],
+  booksList: {},
   msg: '',
   currentRequestId: '',
   loading: 'fin',
@@ -38,9 +36,9 @@ export const addBooksList = createAsyncThunk(
 
 export const delBooksList = createAsyncThunk(
   'books/delBooksList',
-  async (book, { rejectWithValue }) => {
+  async (bookID, { rejectWithValue }) => {
     try {
-      const resp = await delBooks(book);
+      const resp = await delBooks(bookID);
       return resp;
     } catch (err) {
       return rejectWithValue([], err);
@@ -48,7 +46,7 @@ export const delBooksList = createAsyncThunk(
   },
 );
 
-const { actions, reducer } = createSlice({
+const { reducer } = createSlice({
   name: 'books',
   initialState,
   reducers: {},
@@ -74,6 +72,7 @@ const { actions, reducer } = createSlice({
     },
     [addBooksList.fulfilled]: (state, { meta, payload }) => {
       if (meta.requestId === state.currentRequestId.requestId) {
+        state.msg = 'New Book Added';
         state.resp = payload;
         state.loading = 'fin';
         state.currentRequestId = '';
